@@ -2,7 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
+}
+
+.post::after {
+  content: "";
+  width: 70%;
+  height: 5px;
+  margin-top: 5rem;
+  background-color: var(--white-font);
 }
 
 .info {
@@ -33,11 +41,56 @@
 
 .markdown {
   align-self: flex-start;
+  font-size: 1.7rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-weight: 500;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+}
+
+.markdown h2 {
+  font-size: 2.2rem;
+}
+
+.markdown h3 {
+  font-size: 2rem;
+}
+
+.markdown h4 {
+  font-size: 1.8rem;
+}
+
+.markdown h5 {
+  font-size: 1.6rem;
+}
+
+.markdown h6 {
+  font-size: 1.4rem;
+}
+
+.markdown img {
+  max-width: 100%;
+}
+
+.markdown p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .date {
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
