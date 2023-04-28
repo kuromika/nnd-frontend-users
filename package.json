@@ -14,10 +14,16 @@
     "@types/react-dom": "18.2.1",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
+    "gray-matter": "^4.0.3",
     "next": "13.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "typescript": "5.0.4",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",

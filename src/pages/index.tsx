@@ -1,5 +1,6 @@
 import { Post, PostType } from "@/components/post";
 import { useEffect, useState } from "react";
+import styles from "@/styles/pages/Home.module.css";
 
 export default function Home() {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -27,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.posts}>
       {posts.map((post) => {
         return <Post {...post} key={post._id}></Post>;
       })}
