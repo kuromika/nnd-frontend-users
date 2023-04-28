@@ -2,11 +2,10 @@
   position: fixed;
   margin-bottom: -5rem;
   margin-left: -5rem;
-  opacity: 0.5;
-  filter: blur(3rem);
   height: 100%;
   width: 100%;
-  background-color: var(--saya-blue);
+  background-color: rgba(3, 4, 7, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 .content {
