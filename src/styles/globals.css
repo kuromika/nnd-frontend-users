@@ -19,11 +19,6 @@
   color: var(--white-font);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 html {
   font-size: 62.5%; /* set rem to 10px */
 }
@@ -32,4 +27,8 @@ body {
   font-family: "Noto Serif JP", serif;
   min-height: 100vh;
   background-color: var(--main-bg);
+}
+
+main {
+  padding-bottom: 5rem;
 }

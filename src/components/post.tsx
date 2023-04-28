@@ -1,5 +1,5 @@
 import styles from "@/styles/components/Post.module.css";
-import { formatDistance, subDays } from "date-fns";
+import { formatDistance } from "date-fns";
 import matter from "gray-matter";
 import { useEffect, useState } from "react";
 import rehypeStringify from "rehype-stringify/lib";
@@ -44,12 +44,14 @@ export const Post = (props: PostType) => {
   return (
     <article className={styles.post}>
       <div className={styles.header}>
-        <h1>{meta.data.title}</h1>
-        <p>
-          {formatDistance(new Date(props.date), new Date(), {
-            addSuffix: true,
-          })}
-        </p>
+        <div className={styles.info}>
+          <h1>{meta.data.title}</h1>
+          <p className={styles.date}>
+            {formatDistance(new Date(props.date), new Date(), {
+              addSuffix: true,
+            })}
+          </p>
+        </div>
         <img src={meta.data.image}></img>
       </div>
       <div
