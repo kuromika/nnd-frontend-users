@@ -1,0 +1,22 @@
+.modal {
+  position: fixed;
+  margin-bottom: -5rem;
+  margin-left: -5rem;
+  opacity: 0.5;
+  filter: blur(3rem);
+  height: 100%;
+  width: 100%;
+  background-color: var(--saya-blue);
+}
+
+.content {
+  position: fixed;
+  margin-bottom: -5rem;
+  margin-left: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
