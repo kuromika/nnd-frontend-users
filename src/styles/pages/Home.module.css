@@ -1,5 +1,8 @@
 .posts {
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10rem;
