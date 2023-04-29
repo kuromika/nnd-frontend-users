@@ -4,8 +4,10 @@ import { PropsWithChildren } from "react";
 export const Modal = ({ children }: PropsWithChildren) => {
   return (
     <>
-      <div className={styles.modal}></div>
-      <div className={styles.content}> {children}</div>
+      <div className={styles.modal}>
+        {" "}
+        <div className={styles.content}> {children}</div>
+      </div>
     </>
   );
 };
