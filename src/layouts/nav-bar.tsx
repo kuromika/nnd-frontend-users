@@ -2,11 +2,21 @@ import { Modal } from "@/components/modal";
 import { AuthContext } from "@/contexts/auth-context";
 import styles from "@/styles/layouts/Navigation.module.css";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 
 export const Navigation = () => {
   const auth = useContext(AuthContext);
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const hideModal = () => {
+      setIsOpen(false);
+    };
+
+    router.events.on("routeChangeComplete", hideModal);
+  }, [router.events]);
 
   const handleClick = () => {
     setIsOpen((prev) => !prev);
@@ -24,9 +34,7 @@ export const Navigation = () => {
       {isOpen && (
         <Modal>
           <div className={styles.links}>
-            <Link href="/" onClick={handleClick}>
-              Top
-            </Link>
+            <Link href="/">Top</Link>
             {!auth.isAuth() && (
               <>
                 <Link href="/auth/login">Log in</Link>
