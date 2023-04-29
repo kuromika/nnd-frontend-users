@@ -6,6 +6,9 @@ export type AuthFormProps = {
   handleChange: (field: string, value: string) => void;
   username: string;
   password: string;
+  title: string;
+  buttonText: string;
+  loading: boolean;
 };
 
 export const AuthForm = (props: AuthFormProps) => {
@@ -15,7 +18,7 @@ export const AuthForm = (props: AuthFormProps) => {
 
   return (
     <form onSubmit={props.handleSubmit} className={styles.form}>
-      <h1>Create a new account</h1>
+      <h1>{props.title}</h1>
       <div className={styles.field}>
         <label htmlFor="username">Username:* </label>
         <input
@@ -36,8 +39,8 @@ export const AuthForm = (props: AuthFormProps) => {
           onChange={handleInputChange}
         ></input>
       </div>
-      <button type="submit" className={styles.submit}>
-        Sign Up
+      <button type="submit" className={styles.submit} disabled={props.loading}>
+        {props.buttonText}
       </button>
     </form>
   );
