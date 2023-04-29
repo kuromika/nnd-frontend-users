@@ -12,7 +12,9 @@ export const Navigation = () => {
   return (
     <nav className={styles.nav}>
       <button
-        className={styles["menu-button"]}
+        className={`${styles["menu-button"]} ${
+          isOpen ? styles.open : styles.closed
+        }`}
         aria-label="Menu button"
         onClick={handleClick}
       ></button>
