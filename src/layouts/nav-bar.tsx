@@ -24,6 +24,9 @@ export const Navigation = () => {
       {isOpen && (
         <Modal>
           <div className={styles.links}>
+            <Link href="/" onClick={handleClick}>
+              Top
+            </Link>
             {!auth.isAuth() && (
               <>
                 <Link href="/auth/login">Log in</Link>
