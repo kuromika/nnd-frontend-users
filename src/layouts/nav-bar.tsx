@@ -1,9 +1,11 @@
 import { Modal } from "@/components/modal";
+import { AuthContext } from "@/contexts/auth-context";
 import styles from "@/styles/layouts/Navigation.module.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export const Navigation = () => {
+  const auth = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -21,9 +23,15 @@ export const Navigation = () => {
       ></button>
       {isOpen && (
         <Modal>
-          <div>
-            <Link href="/auth/login">Log in</Link>
-            <Link href="/auth/signup">Sign up</Link>
+          <div className={styles.links}>
+            {!auth.isAuth() && (
+              <>
+                <Link href="/auth/login">Log in</Link>
+                <Link href="/auth/signup">Sign up</Link>
+              </>
+            )}
+            <Link href="/posts">Posts</Link>
+            <Link href="/about">About</Link>
           </div>
         </Modal>
       )}

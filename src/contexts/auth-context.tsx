@@ -6,7 +6,7 @@ export type AuthContextType = {
   token: string | null;
 };
 
-const AuthContext = createContext({} as AuthContextType);
+export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [token, setToken] = useState<string | null>(null);
