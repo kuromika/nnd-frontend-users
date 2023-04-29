@@ -1,5 +1,6 @@
 import { Modal } from "@/components/modal";
 import styles from "@/styles/layouts/Navigation.module.css";
+import Link from "next/link";
 import { useState } from "react";
 
 export const Navigation = () => {
@@ -21,7 +22,8 @@ export const Navigation = () => {
       {isOpen && (
         <Modal>
           <div>
-            <h1>hello world</h1>
+            <Link href="/auth/login">Log in</Link>
+            <Link href="/auth/signup">Sign up</Link>
           </div>
         </Modal>
       )}
