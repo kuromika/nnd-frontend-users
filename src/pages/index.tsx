@@ -1,6 +1,7 @@
-import { Post, PostType } from "@/components/post";
-import { useEffect, useState } from "react";
+import { Post } from "@/components/post";
 import styles from "@/styles/pages/Home.module.css";
+import { PostType } from "@/types/post";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [posts, setPosts] = useState<PostType[]>([]);

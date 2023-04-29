@@ -1,5 +1,6 @@
 import styles from "@/styles/components/Post.module.css";
-import { formatDistance } from "date-fns";
+import { PostType } from "@/types/post";
+import { format, formatDistance } from "date-fns";
 import matter from "gray-matter";
 import { useEffect, useState } from "react";
 import rehypeStringify from "rehype-stringify/lib";
@@ -8,24 +9,17 @@ import remarkParse from "remark-parse/lib";
 import remarkRehype from "remark-rehype/lib";
 import { unified } from "unified";
 
-export type PostType = {
-  _id: string;
-  content: string;
-  isPublished: boolean;
-  user: string;
-  __v: number;
-  date: string;
-};
-
-export type PostMetaType = {
-  title: string;
-  description?: string;
-  image: string;
-};
-
 export const Post = (props: PostType) => {
   const [html, setHtml] = useState<TrustedHTML | string>("");
   const meta = matter(props.content);
+  const postDate = new Date(props.date);
+  const formattedDate = `${format(postDate, "yyyy/MM/dd")} (${formatDistance(
+    postDate,
+    new Date(),
+    {
+      addSuffix: true,
+    }
+  )})`;
 
   useEffect(() => {
     const convertContent = async () => {
@@ -46,11 +40,7 @@ export const Post = (props: PostType) => {
       <div className={styles.header}>
         <div className={styles.info}>
           <h1>{meta.data.title}</h1>
-          <p className={styles.date}>
-            {formatDistance(new Date(props.date), new Date(), {
-              addSuffix: true,
-            })}
-          </p>
+          <p className={styles.date}>{formattedDate}</p>
         </div>
         <img src={meta.data.image}></img>
       </div>
