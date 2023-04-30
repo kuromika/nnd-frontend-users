@@ -58,6 +58,7 @@ main {
 }
 
 .notification {
+  display: block;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.8rem;
@@ -67,4 +68,9 @@ main {
 
 .hidden {
   visibility: hidden;
+}
+
+.centered-container {
+  margin-top: auto;
+  margin-bottom: auto;
 }
