@@ -42,7 +42,7 @@ export const Post = (props: PostType) => {
           <h1>{meta.data.title}</h1>
           <p className={styles.date}>{formattedDate}</p>
         </div>
-        <img src={meta.data.image}></img>
+        <img src={meta.data.image} loading="lazy"></img>
       </div>
       <div
         className={styles.markdown}
