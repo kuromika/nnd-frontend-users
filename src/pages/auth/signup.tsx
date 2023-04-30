@@ -1,6 +1,7 @@
 import { AuthForm } from "@/features/authentication/form";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
+import styles from '@/styles/pages/SignUp.module.css'
 
 export type credentials = {
   username: string;
@@ -60,7 +61,7 @@ export default function SignUp() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <AuthForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
