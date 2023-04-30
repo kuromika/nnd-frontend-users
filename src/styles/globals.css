@@ -23,10 +23,13 @@ html {
   font-size: 62.5%; /* set rem to 10px */
 }
 
-body {
+#__next{
   font-family: "Noto Serif JP", serif;
   min-height: 100vh;
   background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+
 }
 
 main {
