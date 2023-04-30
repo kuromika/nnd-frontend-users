@@ -1,5 +1,4 @@
 import { parseErrors } from "@/services/parse-errors";
-import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import { AuthForm } from "./form";
 
@@ -12,12 +11,16 @@ export type ControlledFormProps = {
   fetchURL: string;
   title: string;
   buttonText: string;
+  onSuccess: string;
+  handleSuccess: () => void;
 };
 
 export const ControlledForm = ({
   fetchURL,
   buttonText,
   title,
+  onSuccess,
+  handleSuccess,
 }: ControlledFormProps) => {
   const [input, setInput] = useState<credentials>({
     username: "",
@@ -26,8 +29,6 @@ export const ControlledForm = ({
 
   const [notification, setNotification] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const router = useRouter();
 
   const handleChange = (field: string, value: string) => {
     setInput((prev) => {
@@ -48,10 +49,8 @@ export const ControlledForm = ({
     });
 
     if (response.ok) {
-      setNotification("User created successfully, you may log in now.");
-      setTimeout(() => {
-        router.push("/auth/login");
-      }, 1500);
+      setNotification(onSuccess);
+      handleSuccess();
       return;
     }
     const errors = await parseErrors(response);
