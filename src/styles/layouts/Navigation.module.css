@@ -44,3 +44,13 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+.logout {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+}
+
+.logout:hover {
+  cursor: pointer;
+}

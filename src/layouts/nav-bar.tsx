@@ -42,6 +42,11 @@ export const Navigation = () => {
               </>
             )}
             <Link href="/posts">Posts</Link>
+            {auth.isAuth() && (
+              <button className={styles.logout} onClick={auth.logOut}>
+                Log out
+              </button>
+            )}
             <Link href="/about">About</Link>
           </div>
         </Modal>

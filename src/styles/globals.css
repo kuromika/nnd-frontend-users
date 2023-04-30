@@ -15,8 +15,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-weight: normal;
   color: var(--white-font);
+  font-family: "Noto Serif JP", serif;
 }
 
 html {
@@ -24,7 +24,6 @@ html {
 }
 
 #__next {
-  font-family: "Noto Serif JP", serif;
   min-height: 100vh;
   background-color: var(--main-bg);
   display: flex;
