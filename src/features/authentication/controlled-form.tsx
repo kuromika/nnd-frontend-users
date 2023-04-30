@@ -12,7 +12,7 @@ export type ControlledFormProps = {
   title: string;
   buttonText: string;
   onSuccess: string;
-  handleSuccess: () => void;
+  handleSuccess: (response: Response) => void;
 };
 
 export const ControlledForm = ({
@@ -50,7 +50,7 @@ export const ControlledForm = ({
 
     if (response.ok) {
       setNotification(onSuccess);
-      handleSuccess();
+      handleSuccess(response);
       return;
     }
     const errors = await parseErrors(response);
