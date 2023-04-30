@@ -1,7 +1,8 @@
 import { AuthForm } from "@/features/authentication/form";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
-import styles from '@/styles/pages/SignUp.module.css'
+import styles from "@/styles/pages/SignUp.module.css";
+import { parseErrors } from "@/services/parse-errors";
 
 export type credentials = {
   username: string;
@@ -39,24 +40,13 @@ export default function SignUp() {
 
     if (response.ok) {
       setNotification("User created successfully, you may log in now.");
-      router.push("/");
+      setTimeout(() => {
+        router.push("/auth/login");
+      }, 1500);
       return;
     }
-    try {
-      const data = await response.json();
-      let errors: string = "";
-      for (let i = 0; i < data.errors.length; i++) {
-        if (typeof data.errors[i] === "string") {
-          errors += `${data.errors[i]}`;
-        } else {
-          errors += `${data.errors[i].msg}`;
-        }
-        i === data.errors.length - 1 ? (errors += ".") : (errors += " ,");
-      }
-      setNotification(errors);
-    } catch (err) {
-      setNotification(`Error ${response.status}`);
-    }
+    const errors = await parseErrors(response);
+    setNotification(errors);
     setLoading(false);
   };
 
@@ -71,7 +61,7 @@ export default function SignUp() {
         buttonText="Sign Up"
         loading={loading}
       ></AuthForm>
-      <p>{notification}</p>
+      {notification && <p className="notification">{notification}</p>}
     </div>
   );
 }

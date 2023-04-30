@@ -9,7 +9,7 @@
 .form h1 {
   font-size: 2.5rem;
   margin-bottom: 4rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .field {
@@ -21,11 +21,16 @@
   align-items: center;
 }
 
+.field label{
+  font-weight: 600;
+}
+
 .field input {
   background-color: var(--main-bg);
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   border-color: var(--white-font);
+  border-radius: 0.5rem;
 }
 
 @media (max-width: 425px) {
@@ -41,5 +46,6 @@
   padding: 1rem 2rem 1rem 2rem;
   background-color: var(--main-bg);
   border-color: var(--white-font);
-  font-weight: 500;
+  font-weight: 600;
+  border-radius: 1rem;
 }
