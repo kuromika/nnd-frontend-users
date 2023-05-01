@@ -28,3 +28,5 @@ export default function Login() {
     </div>
   );
 }
+
+Login.blockAuth = true;

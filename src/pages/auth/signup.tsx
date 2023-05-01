@@ -23,3 +23,5 @@ export default function SignUp() {
     </div>
   );
 }
+
+SignUp.blockAuth = true;
