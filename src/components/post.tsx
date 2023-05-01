@@ -19,7 +19,7 @@ export const Post = (props: PostType) => {
 
   useEffect(() => {
     const convertContent = async () => {
-      const transformed = convertToHtml(meta.content);
+      const transformed = await convertToHtml(meta.content);
       setHtml(transformed);
     };
 
