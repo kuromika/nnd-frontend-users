@@ -4,17 +4,38 @@
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .content img {
   width: 100%;
   object-fit: cover;
   height: 40rem;
+  border-radius: 1rem;
 }
 
-.content h1 {
-  text-align: center;
+.content h1,
+.content h2 {
+  text-align: right;
   margin-top: 5rem;
-  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.content p {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.content p a {
+  color: #ff4140;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.content p a:visited {
+  color: #ff4140;
 }
