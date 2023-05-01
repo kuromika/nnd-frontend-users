@@ -34,19 +34,21 @@ export const Navigation = () => {
       {isOpen && (
         <Modal>
           <div className={styles.links}>
-            <Link href="/">Top</Link>
             {!auth.isAuth() && (
-              <>
+              <div className={styles.auth}>
                 <Link href="/auth/login">Log in</Link>
                 <Link href="/auth/signup">Sign up</Link>
-              </>
+              </div>
             )}
-            <Link href="/posts">Posts</Link>
             {auth.isAuth() && (
-              <button className={styles.logout} onClick={auth.logOut}>
-                Log out
-              </button>
+              <div className={styles.auth}>
+                <button className={styles.logout} onClick={auth.logOut}>
+                  Log out
+                </button>
+              </div>
             )}
+            <Link href="/">Top</Link>
+            <Link href="/posts">Posts</Link>
             <Link href="/about">About</Link>
           </div>
         </Modal>
