@@ -1,13 +1,9 @@
+import { convertToHtml } from "@/services/transform-markdown";
 import styles from "@/styles/components/Post.module.css";
 import { PostType } from "@/types/post";
 import { format, formatDistance } from "date-fns";
 import matter from "gray-matter";
 import { useEffect, useState } from "react";
-import rehypeStringify from "rehype-stringify/lib";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse/lib";
-import remarkRehype from "remark-rehype/lib";
-import { unified } from "unified";
 
 export const Post = (props: PostType) => {
   const [html, setHtml] = useState<TrustedHTML | string>("");
@@ -23,13 +19,8 @@ export const Post = (props: PostType) => {
 
   useEffect(() => {
     const convertContent = async () => {
-      const content = await unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkRehype, { allowDangerousHtml: true })
-        .use(rehypeStringify, { allowDangerousHtml: true })
-        .process(meta.content);
-      setHtml(content);
+      const transformed = convertToHtml(meta.content);
+      setHtml(transformed);
     };
 
     convertContent();
