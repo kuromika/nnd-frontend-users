@@ -1,4 +1,5 @@
 import { Post } from "@/components/post";
+import { Protected } from "@/components/protected";
 import { AuthContext } from "@/contexts/auth-context";
 import { CommentSection } from "@/features/comments/comment-section";
 import { CommentEditor } from "@/features/comments/editor";
@@ -61,11 +62,13 @@ export default function PostPage(props: PostType) {
   return (
     <div className={styles.container}>
       <Post {...props}></Post>
-      <CommentEditor
-        postId={pid as string}
-        token={auth.token}
-        addComment={handleAddComment}
-      ></CommentEditor>
+      <Protected text="comment">
+        <CommentEditor
+          postId={pid as string}
+          token={auth.token}
+          addComment={handleAddComment}
+        ></CommentEditor>
+      </Protected>
       <CommentSection comments={comments}></CommentSection>
     </div>
   );
