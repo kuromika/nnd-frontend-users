@@ -23,7 +23,7 @@ export default function About() {
         only know what I know&quot;.
       </p>
       <p>
-        The name for this blog cames from a song by
+        The name for this blog comes from a song by
         <a href="https://en.wikipedia.org/wiki/Supercell_(band)"> Supercell </a>
         called{" "}
         <a href="https://www.youtube.com/watch?v=eLPs_w-FepA&ab_channel=supercellVEVO">
