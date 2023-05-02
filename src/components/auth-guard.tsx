@@ -8,13 +8,11 @@ export function AuthGuard({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (auth.isAuth() && !router.query.from) {
-      console.log("a");
       router.push("/");
     }
   }, [router, auth]);
 
   if (!auth.isAuth()) {
-    console.log("b");
     return <>{children}</>;
   }
   return null;
