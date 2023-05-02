@@ -39,11 +39,11 @@ export default function About() {
           Summer Triangle
         </a>
         .
-        <p>
-          I love Supercell&apos;s work, Nagi Yanagi&apos;s voice and of course,
-          Monogatari, that is why I decided that it would be the perfect name
-          for my blog.
-        </p>
+      </p>
+      <p>
+        I love Supercell&apos;s work, Nagi Yanagi&apos;s voice and of course,
+        Monogatari, that is why I decided that it would be the perfect name for
+        my blog.
       </p>
       <h2>Me</h2>
       <p>
