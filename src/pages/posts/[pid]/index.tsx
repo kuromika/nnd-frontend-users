@@ -25,16 +25,14 @@ export async function getServerSideProps(context: NextPageContext) {
   }
 
   const data = await response.json();
-  const meta = matter(data).data as PostMetaType;
 
   return {
-    props: { post: data, meta },
+    props: { post: data },
   };
 }
 
 export default function PostPage({
   post,
-  meta,
 }: {
   post: PostType;
   meta: PostMetaType;
@@ -43,6 +41,7 @@ export default function PostPage({
   const [comments, setComments] = useState<CommentType[]>([]);
   const router = useRouter();
   const { pid } = router.query;
+  const meta = matter(post).data as PostMetaType;
 
   useEffect(() => {
     const fetchComments = async () => {
