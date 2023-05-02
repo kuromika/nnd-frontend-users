@@ -1,5 +1,6 @@
 import { Post } from "@/components/post";
 import { AuthContext } from "@/contexts/auth-context";
+import { CommentSection } from "@/features/comments/comment-section";
 import { CommentEditor } from "@/features/comments/editor";
 import styles from "@/styles/pages/Post.module.css";
 import { CommentType } from "@/types/comment";
@@ -65,6 +66,7 @@ export default function PostPage(props: PostType) {
         token={auth.token}
         addComment={handleAddComment}
       ></CommentEditor>
+      <CommentSection comments={comments}></CommentSection>
     </div>
   );
 }
