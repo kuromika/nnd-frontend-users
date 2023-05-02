@@ -70,7 +70,7 @@ export default function PostPage({
   return (
     <div className={styles.container}>
       <Head>
-        <title>${meta.title}</title>
+        <title>{meta.title}</title>
         <meta property="description" content={meta.description} />
         <meta property="og:title" content={meta.title}></meta>
         <meta
