@@ -29,12 +29,14 @@ export const CommentEditor = ({ postId, token }: CommentEditorProps) => {
         method: "POST",
         headers: new Headers({
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         }),
         body,
       }
     );
 
     if (response.ok) {
+      const data = await response.json();
       setComment("");
       setNotification("Comment added successfully");
     } else {
