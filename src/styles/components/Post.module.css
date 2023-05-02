@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+.header a {
+  text-decoration: none;
+}
+
 .header {
   display: flex;
   flex-direction: column;

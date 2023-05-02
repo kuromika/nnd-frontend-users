@@ -3,6 +3,7 @@ import styles from "@/styles/components/Post.module.css";
 import { PostType } from "@/types/post";
 import { format, formatDistance } from "date-fns";
 import matter from "gray-matter";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const Post = (props: PostType) => {
@@ -29,10 +30,12 @@ export const Post = (props: PostType) => {
   return (
     <article className={styles.post}>
       <div className={styles.header}>
-        <div className={styles.info}>
-          <h1>{meta.data.title}</h1>
-          <p className={styles.date}>{formattedDate}</p>
-        </div>
+        <Link href={props._id}>
+          <div className={styles.info}>
+            <h1>{meta.data.title}</h1>
+            <p className={styles.date}>{formattedDate}</p>
+          </div>
+        </Link>
         <img src={meta.data.image} loading="lazy"></img>
       </div>
       <div
