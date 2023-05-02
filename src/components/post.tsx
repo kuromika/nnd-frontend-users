@@ -30,7 +30,7 @@ export const Post = (props: PostType) => {
   return (
     <article className={styles.post}>
       <div className={styles.header}>
-        <Link href={props._id}>
+        <Link href={`/posts/${props._id}`}>
           <div className={styles.info}>
             <h1>{meta.data.title}</h1>
             <p className={styles.date}>{formattedDate}</p>
