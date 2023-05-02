@@ -13,7 +13,7 @@ export default function Document() {
         <meta property="og:title" content="Natsu no Daisankaku"></meta>
         <meta
           property="og:url"
-          content={`https://natsu-no-daisankaku.vercel.app/posts/${pid}`}
+          content={`https://natsu-no-daisankaku.vercel.app/`}
         ></meta>
         <meta
           property="og:image"
