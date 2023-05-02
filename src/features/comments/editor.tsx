@@ -62,6 +62,7 @@ export const CommentEditor = ({
           className={styles.textarea}
           placeholder="Leave a comment..."
           required
+          maxLength={500}
         ></textarea>
         <div className={styles.under}>
           {notification && (
