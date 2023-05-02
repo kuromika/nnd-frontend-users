@@ -62,7 +62,7 @@ export default function PostPage(props: PostType) {
   return (
     <div className={styles.container}>
       <Post {...props}></Post>
-      <Protected text="comment">
+      <Protected text="comment" route={encodeURIComponent(`/posts/${pid}`)}>
         <CommentEditor
           postId={pid as string}
           token={auth.token}

@@ -50,7 +50,9 @@ export const ControlledForm = ({
 
     if (response.ok) {
       setNotification(onSuccess);
-      handleSuccess(response);
+      setTimeout(() => {
+        handleSuccess(response);
+      }, 1500);
       return;
     }
     const errors = await parseErrors(response);

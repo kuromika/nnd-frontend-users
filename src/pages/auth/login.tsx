@@ -10,10 +10,8 @@ export default function Login() {
   const handleSuccess = async (response: Response) => {
     const data = await response.json();
     auth.setAuth(data.token);
-    setTimeout(() => {
-      router.push("/");
-    }, 1500);
-    return;
+    const { from } = router.query;
+    from ? router.push(decodeURIComponent(from as string)) : router.push("/");
   };
 
   return (

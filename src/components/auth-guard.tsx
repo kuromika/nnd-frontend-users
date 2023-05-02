@@ -7,14 +7,15 @@ export function AuthGuard({ children }: PropsWithChildren) {
   const router = useRouter();
 
   useEffect(() => {
-    if (auth.isAuth()) {
+    if (auth.isAuth() && !router.query.from) {
+      console.log("a");
       router.push("/");
     }
   }, [router, auth]);
 
   if (!auth.isAuth()) {
+    console.log("b");
     return <>{children}</>;
   }
-
   return null;
 }
