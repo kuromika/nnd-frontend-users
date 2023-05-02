@@ -2,10 +2,11 @@ import { Post } from "@/components/post";
 import { AuthContext } from "@/contexts/auth-context";
 import { CommentEditor } from "@/features/comments/editor";
 import styles from "@/styles/pages/Post.module.css";
+import { CommentType } from "@/types/comment";
 import { PostType } from "@/types/post";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export async function getServerSideProps(context: NextPageContext) {
   const { pid } = context.query;
@@ -28,15 +29,35 @@ export async function getServerSideProps(context: NextPageContext) {
 
 export default function PostPage(props: PostType) {
   const auth = useContext(AuthContext);
+  const [comments, setComments] = useState<CommentType[]>([]);
   const router = useRouter();
+  const { pid } = router.query;
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      const response = await fetch(
+        `https://nnd-backend.up.railway.app/posts/${pid}/comments`,
+        {
+          mode: "cors",
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setComments(data);
+      } else {
+        console.error(
+          `Couldn't fetch this post commends, error ${response.status}`
+        );
+      }
+    };
+
+    fetchComments();
+  }, [pid]);
 
   return (
     <div className={styles.container}>
       <Post {...props}></Post>
-      <CommentEditor
-        postId={router.query.pid as string}
-        token={auth.token}
-      ></CommentEditor>
+      <CommentEditor postId={pid as string} token={auth.token}></CommentEditor>
     </div>
   );
 }
