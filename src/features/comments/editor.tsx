@@ -1,12 +1,18 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "@/styles/features/comments/Editor.module.css";
+import { CommentType } from "@/types/comment";
 
 export type CommentEditorProps = {
   postId: string;
   token: string | null;
+  addComment: (comment: CommentType) => void;
 };
 
-export const CommentEditor = ({ postId, token }: CommentEditorProps) => {
+export const CommentEditor = ({
+  postId,
+  token,
+  addComment,
+}: CommentEditorProps) => {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState("");
@@ -39,6 +45,7 @@ export const CommentEditor = ({ postId, token }: CommentEditorProps) => {
       const data = await response.json();
       setComment("");
       setNotification("Comment added successfully");
+      addComment(data);
     } else {
       setNotification("Your comment couldn't be added, try again later");
     }

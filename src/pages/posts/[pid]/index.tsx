@@ -50,14 +50,21 @@ export default function PostPage(props: PostType) {
         );
       }
     };
-
     fetchComments();
   }, [pid]);
+
+  const handleAddComment = (comment: CommentType) => {
+    setComments((prev) => [comment, ...prev]);
+  };
 
   return (
     <div className={styles.container}>
       <Post {...props}></Post>
-      <CommentEditor postId={pid as string} token={auth.token}></CommentEditor>
+      <CommentEditor
+        postId={pid as string}
+        token={auth.token}
+        addComment={handleAddComment}
+      ></CommentEditor>
     </div>
   );
 }
