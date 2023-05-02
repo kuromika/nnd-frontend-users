@@ -17,6 +17,7 @@
   margin: 0;
   color: var(--white-font);
   font-family: "Noto Serif JP", serif;
+  line-height: 150%;
 }
 
 html {
