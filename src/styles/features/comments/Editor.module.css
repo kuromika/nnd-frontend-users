@@ -1,0 +1,48 @@
+.editor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.textarea {
+  font-size: 1.5rem;
+  background-color: #040608;
+  padding: 1rem;
+  height: 10rem;
+}
+
+.under {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.submit {
+  padding: 0.3rem 1rem;
+  background-color: #040608;
+  border: var(--white-font) solid 0.2rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.notification {
+  flex-grow: 1;
+  padding: 0.7rem;
+  border: var(--white-font) solid 0.1rem;
+  font-size: 1.4rem;
+}
+
+.submit:active {
+  border-color: #ff4140;
+}

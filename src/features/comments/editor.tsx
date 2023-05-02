@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import styles from "@/styles/features/comments/Editor.module.css";
 
 export type CommentEditorProps = {
   postId: string;
@@ -44,14 +45,24 @@ export const CommentEditor = ({ postId, token }: CommentEditorProps) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <textarea value={comment} onChange={handleChange}></textarea>
-        <button type="submit" disabled={loading}>
-          Comment
-        </button>
+    <div className={styles.editor}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <textarea
+          value={comment}
+          onChange={handleChange}
+          className={styles.textarea}
+          placeholder="Leave a comment..."
+          required
+        ></textarea>
+        <div className={styles.under}>
+          {notification && (
+            <p className={styles.notification}>{notification}</p>
+          )}
+          <button type="submit" disabled={loading} className={styles.submit}>
+            Comment
+          </button>
+        </div>
       </form>
-      <p>{notification}</p>
     </div>
   );
 };
