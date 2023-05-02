@@ -5,8 +5,10 @@ import { CommentSection } from "@/features/comments/comment-section";
 import { CommentEditor } from "@/features/comments/editor";
 import styles from "@/styles/pages/Post.module.css";
 import { CommentType } from "@/types/comment";
-import { PostType } from "@/types/post";
+import { PostMetaType, PostType } from "@/types/post";
+import matter from "gray-matter";
 import { NextPageContext } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 
@@ -23,13 +25,20 @@ export async function getServerSideProps(context: NextPageContext) {
   }
 
   const data = await response.json();
+  const meta = matter(data).data as PostMetaType;
 
   return {
-    props: { ...data },
+    props: { post: data, meta },
   };
 }
 
-export default function PostPage(props: PostType) {
+export default function PostPage({
+  post,
+  meta,
+}: {
+  post: PostType;
+  meta: PostMetaType;
+}) {
   const auth = useContext(AuthContext);
   const [comments, setComments] = useState<CommentType[]>([]);
   const router = useRouter();
@@ -61,7 +70,26 @@ export default function PostPage(props: PostType) {
 
   return (
     <div className={styles.container}>
-      <Post {...props}></Post>
+      <Head>
+        <meta property="og:title" content={meta.title}></meta>
+        <meta
+          property="og:url"
+          content="https://natsu-no-daisankaku.vercel.app/"
+        ></meta>
+        <meta property="og:image" content={meta.image}></meta>
+        <meta name="og:image:alt" content="Post's header image"></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:description" content={meta.description}></meta>
+        <meta property="og:locale" content="en_US"></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:site" content="@kuromika__"></meta>
+        <meta name="twitter:creator" content="@kuromika__"></meta>
+        <meta name="twitter:title" content={meta.title}></meta>
+        <meta name="twitter:description" content={meta.description}></meta>
+        <meta name="twitter:image" content={meta.image}></meta>
+        <meta name="twitter:image:alt" content="Post's header image"></meta>
+      </Head>
+      <Post {...post}></Post>
       <Protected text="comment" route={encodeURIComponent(`/posts/${pid}`)}>
         <CommentEditor
           postId={pid as string}
