@@ -63,3 +63,10 @@
 .logout:hover {
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .nav {
+    top: 1rem;
+    left: -2rem;
+  }
+}

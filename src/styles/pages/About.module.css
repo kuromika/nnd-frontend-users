@@ -38,3 +38,9 @@
 .content p a:visited {
   color: #ff4140;
 }
+
+@media (max-width: 720px) {
+  .content {
+    width: 90%;
+  }
+}
