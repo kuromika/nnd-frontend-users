@@ -70,19 +70,18 @@ export default function PostPage({
   return (
     <div className={styles.container}>
       <Head>
+        <title>${meta.title}</title>
+        <meta property="description" content={meta.description} />
         <meta property="og:title" content={meta.title}></meta>
         <meta
           property="og:url"
-          content="https://natsu-no-daisankaku.vercel.app/"
+          content={`https://natsu-no-daisankaku.vercel.app/posts/${pid}`}
         ></meta>
         <meta property="og:image" content={meta.image}></meta>
         <meta name="og:image:alt" content="Post's header image"></meta>
         <meta property="og:type" content="article"></meta>
         <meta property="og:description" content={meta.description}></meta>
-        <meta property="og:locale" content="en_US"></meta>
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta name="twitter:site" content="@kuromika__"></meta>
-        <meta name="twitter:creator" content="@kuromika__"></meta>
+
         <meta name="twitter:title" content={meta.title}></meta>
         <meta name="twitter:description" content={meta.description}></meta>
         <meta name="twitter:image" content={meta.image}></meta>
