@@ -1,4 +1,5 @@
 import { ControlledForm } from "@/features/authentication/controlled-form";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 export default function SignUp() {
@@ -13,6 +14,9 @@ export default function SignUp() {
 
   return (
     <div className="centered-container">
+      <Head>
+        <title>Sign up</title>
+      </Head>
       <ControlledForm
         fetchURL="https://nnd-backend.up.railway.app/users"
         buttonText="Sign Up"
