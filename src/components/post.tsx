@@ -6,20 +6,9 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export const Post = ({
-  post,
-  fetchedMeta,
-}: {
-  post: PostType;
-  fetchedMeta: PostMetaType;
-}) => {
+export const Post = ({ post }: { post: PostType }) => {
   const [html, setHtml] = useState<TrustedHTML | string>("");
   const postDate = new Date(post.date);
-  const [meta, setMeta] = useState<PostMetaType>({
-    title: "",
-    image: "",
-    description: "",
-  });
   const formattedDate = `${format(postDate, "yyyy/MM/dd")} (${formatDistance(
     postDate,
     new Date(),
@@ -27,18 +16,23 @@ export const Post = ({
       addSuffix: true,
     }
   )})`;
+  const [meta, setMeta] = useState<PostMetaType>({
+    title: "",
+    description: "",
+    image: "",
+  });
 
   useEffect(() => {
     const convertContent = async () => {
       const parsed = matter(post.content);
+      const metaData = parsed.data as PostMetaType;
+      setMeta(metaData);
       const transformed = await convertToHtml(parsed.content);
       setHtml(transformed);
     };
 
-    setMeta(fetchedMeta);
-
     convertContent();
-  }, [post.content, fetchedMeta]);
+  }, [post.content]);
 
   return (
     <article className={styles.post}>

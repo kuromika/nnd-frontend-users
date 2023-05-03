@@ -88,7 +88,7 @@ export default function PostPage({
         <meta name="twitter:image" content={meta.image}></meta>
         <meta name="twitter:image:alt" content="Post's header image"></meta>
       </Head>
-      <Post post={post} fetchedMeta={meta} />
+      <Post post={post} />
       <Protected text="comment" route={encodeURIComponent(`/posts/${pid}`)}>
         <CommentEditor
           postId={pid as string}
