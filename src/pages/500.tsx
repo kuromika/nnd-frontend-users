@@ -1,12 +1,13 @@
+import { DefaultHead } from "@/components/default-head";
 import Head from "next/head";
 import Image from "next/image";
 
 export default function Custom500() {
   return (
     <div className="error-container">
-      <Head>
+      <DefaultHead>
         <title>500 - Server side error</title>
-      </Head>
+      </DefaultHead>
       <h1>500 - Server side error ocurred</h1>
       <Image
         src="/summer-triangle.jpg"

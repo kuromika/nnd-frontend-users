@@ -1,13 +1,14 @@
 import Image from "next/image";
 import styles from "@/styles/pages/About.module.css";
 import Head from "next/head";
+import { DefaultHead } from "@/components/default-head";
 
 export default function About() {
   return (
     <section className={styles.content}>
-      <Head>
+      <DefaultHead>
         <title>About</title>
-      </Head>
+      </DefaultHead>
       <Image
         src="/nadeko.png"
         width={1910}

@@ -1,3 +1,4 @@
+import { DefaultHead } from "@/components/default-head";
 import { AuthContext } from "@/contexts/auth-context";
 import { ControlledForm } from "@/features/authentication/controlled-form";
 import Head from "next/head";
@@ -17,9 +18,9 @@ export default function Login() {
 
   return (
     <div className="centered-container">
-      <Head>
+      <DefaultHead>
         <title>Log in</title>
-      </Head>
+      </DefaultHead>
       <ControlledForm
         fetchURL="https://nnd-backend.up.railway.app/auth/login"
         buttonText="Log in"

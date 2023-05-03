@@ -1,3 +1,4 @@
+import { DefaultHead } from "@/components/default-head";
 import { Post } from "@/components/post";
 import { useFetchPosts } from "@/hooks/useFetchPosts";
 import styles from "@/styles/pages/Home.module.css";
@@ -8,9 +9,9 @@ export default function Home() {
 
   return (
     <div className={styles.posts}>
-      <Head>
+      <DefaultHead>
         <title>Natsu no Daisankaku</title>
-      </Head>
+      </DefaultHead>
       {posts.map((post) => {
         return <Post {...post} key={post._id}></Post>;
       })}
