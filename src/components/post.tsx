@@ -8,13 +8,18 @@ import { useEffect, useState } from "react";
 
 export const Post = ({
   post,
-  meta,
+  fetchedMeta,
 }: {
   post: PostType;
-  meta: PostMetaType;
+  fetchedMeta: PostMetaType;
 }) => {
   const [html, setHtml] = useState<TrustedHTML | string>("");
   const postDate = new Date(post.date);
+  const [meta, setMeta] = useState<PostMetaType>({
+    title: "",
+    image: "",
+    description: "",
+  });
   const formattedDate = `${format(postDate, "yyyy/MM/dd")} (${formatDistance(
     postDate,
     new Date(),
@@ -30,8 +35,10 @@ export const Post = ({
       setHtml(transformed);
     };
 
+    setMeta(fetchedMeta);
+
     convertContent();
-  }, [post.content]);
+  }, [post.content, fetchedMeta]);
 
   return (
     <article className={styles.post}>

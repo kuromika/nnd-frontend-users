@@ -18,7 +18,7 @@ export default function Home() {
         return (
           <Post
             post={post}
-            meta={meta.data as PostMetaType}
+            fetchedMeta={meta.data as PostMetaType}
             key={post._id}
           ></Post>
         );
