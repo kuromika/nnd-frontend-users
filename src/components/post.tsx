@@ -1,15 +1,20 @@
 import { convertToHtml } from "@/services/transform-markdown";
 import styles from "@/styles/components/Post.module.css";
-import { PostType } from "@/types/post";
+import { PostMetaType, PostType } from "@/types/post";
 import { format, formatDistance } from "date-fns";
 import matter from "gray-matter";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export const Post = (props: PostType) => {
+export const Post = ({
+  post,
+  meta,
+}: {
+  post: PostType;
+  meta: PostMetaType;
+}) => {
   const [html, setHtml] = useState<TrustedHTML | string>("");
-  const meta = matter(props.content);
-  const postDate = new Date(props.date);
+  const postDate = new Date(post.date);
   const formattedDate = `${format(postDate, "yyyy/MM/dd")} (${formatDistance(
     postDate,
     new Date(),
@@ -20,23 +25,24 @@ export const Post = (props: PostType) => {
 
   useEffect(() => {
     const convertContent = async () => {
-      const transformed = await convertToHtml(meta.content);
+      const parsed = matter(post.content);
+      const transformed = await convertToHtml(parsed.content);
       setHtml(transformed);
     };
 
     convertContent();
-  }, [meta.content]);
+  }, [post.content]);
 
   return (
     <article className={styles.post}>
       <div className={styles.header}>
-        <Link href={`/posts/${props._id}`}>
+        <Link href={`/posts/${post._id}`}>
           <div className={styles.info}>
-            <h1>{meta.data.title}</h1>
+            <h1>{meta.title}</h1>
             <p className={styles.date}>{formattedDate}</p>
           </div>
         </Link>
-        <img src={meta.data.image} loading="lazy"></img>
+        <img src={meta.image} loading="lazy" alt="Post header image"></img>
       </div>
       <div
         className={styles.markdown}

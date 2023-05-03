@@ -2,7 +2,8 @@ import { DefaultHead } from "@/components/default-head";
 import { Post } from "@/components/post";
 import { useFetchPosts } from "@/hooks/useFetchPosts";
 import styles from "@/styles/pages/Home.module.css";
-import Head from "next/head";
+import { PostMetaType } from "@/types/post";
+import matter from "gray-matter";
 
 export default function Home() {
   const posts = useFetchPosts();
@@ -13,7 +14,14 @@ export default function Home() {
         <title>Natsu no Daisankaku</title>
       </DefaultHead>
       {posts.map((post) => {
-        return <Post {...post} key={post._id}></Post>;
+        const meta = matter(post);
+        return (
+          <Post
+            post={post}
+            meta={meta.data as PostMetaType}
+            key={post._id}
+          ></Post>
+        );
       })}
     </div>
   );

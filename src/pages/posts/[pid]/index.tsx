@@ -25,14 +25,16 @@ export async function getServerSideProps(context: NextPageContext) {
   }
 
   const data = await response.json();
+  const meta = matter(data).data;
 
   return {
-    props: { post: data },
+    props: { post: data, meta },
   };
 }
 
 export default function PostPage({
   post,
+  meta,
 }: {
   post: PostType;
   meta: PostMetaType;
@@ -41,7 +43,6 @@ export default function PostPage({
   const [comments, setComments] = useState<CommentType[]>([]);
   const router = useRouter();
   const { pid } = router.query;
-  const meta = matter(post).data as PostMetaType;
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -87,7 +88,7 @@ export default function PostPage({
         <meta name="twitter:image" content={meta.image}></meta>
         <meta name="twitter:image:alt" content="Post's header image"></meta>
       </Head>
-      <Post {...post}></Post>
+      <Post post={post} meta={meta} />
       <Protected text="comment" route={encodeURIComponent(`/posts/${pid}`)}>
         <CommentEditor
           postId={pid as string}
