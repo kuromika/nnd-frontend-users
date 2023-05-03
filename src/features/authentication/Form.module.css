@@ -4,9 +4,13 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form h1 {
+  text-align: center;
   font-size: 2.5rem;
   margin-bottom: 4rem;
   font-weight: 700;
@@ -15,13 +19,13 @@
 .field {
   font-size: 2rem;
   display: grid;
-  grid-template-columns: 0.85fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
   justify-content: center;
   align-content: center;
   align-items: center;
 }
 
-.field label{
+.field label {
   font-weight: 600;
 }
 
@@ -31,6 +35,7 @@
   font-size: 1.8rem;
   border-color: var(--white-font);
   border-radius: 0.5rem;
+  width: 90%;
 }
 
 @media (max-width: 425px) {
