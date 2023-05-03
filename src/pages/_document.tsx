@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link href="/icon.ico" rel="shortcut icon"></link>
         <meta property="description" content="Kuromika's blog and delusions" />
         <meta property="og:locale" content="en_US"></meta>
         <meta name="twitter:card" content="summary_large_image"></meta>
