@@ -14,7 +14,14 @@ export default function Home() {
         <title>Natsu no Daisankaku</title>
       </DefaultHead>
       {posts.map((post) => {
-        return <Post post={post} key={post._id}></Post>;
+        const meta = matter(post);
+        return (
+          <Post
+            post={post}
+            meta={meta.data as PostMetaType}
+            key={post._id}
+          ></Post>
+        );
       })}
     </div>
   );
