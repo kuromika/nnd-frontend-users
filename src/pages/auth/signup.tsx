@@ -8,7 +8,7 @@ export default function SignUp() {
 
   const handleSuccess = () => {
     setTimeout(() => {
-      router.push("/auth/login");
+      router.push("/");
     }, 1500);
     return;
   };
