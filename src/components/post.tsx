@@ -44,7 +44,7 @@ export const Post = ({
             <p className={styles.date}>{date}</p>
           </div>
         </Link>
-        <img src={meta.image} loading="lazy" alt="Post header image"></img>
+        <img src={meta.image} alt="Post header image"></img>
       </div>
       <div
         className={styles.markdown}

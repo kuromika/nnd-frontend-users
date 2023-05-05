@@ -1,5 +1,4 @@
 import { DefaultHead } from "@/components/default-head";
-import Head from "next/head";
 import Image from "next/image";
 
 export default function Custom500() {
