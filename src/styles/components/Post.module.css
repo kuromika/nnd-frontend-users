@@ -42,10 +42,26 @@
   font-size: 3rem;
 }
 
+.info:hover h1{
+    color: #ff4140;
+}
+
 .markdown {
   padding: 1rem;
   align-self: flex-start;
   font-size: 1.7rem;
+}
+
+
+.markdown a:visited {
+  color: #ff4140;
+}
+
+
+.markdown a{
+  color: #ff4140;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .markdown h1,

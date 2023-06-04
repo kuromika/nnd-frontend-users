@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "@/styles/pages/About.module.css";
-import Head from "next/head";
 import { DefaultHead } from "@/components/default-head";
 
 export default function About() {
