@@ -9,6 +9,10 @@ export default function Document() {
         <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:site" content="@kuromika__"></meta>
         <meta name="twitter:creator" content="@kuromika__"></meta>
+        <meta
+          name="google-site-verification"
+          content="cNDNg8_EZWxcB8Z_26GsDQsATOjRKiXNs145xtvoXvI"
+        />
       </Head>
       <body>
         <Main />
