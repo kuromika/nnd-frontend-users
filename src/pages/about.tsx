@@ -16,7 +16,7 @@ export default function About() {
       ></Image>
       <h1>About</h1>
       <p>
-        Welcome to <a href="https://twitter.com/kuromika__">@kuromika</a>&apos;s
+        Welcome to <a href="https://github.com/kuromika">Kuromika</a>&apos;s
         personal blog!
       </p>
       <p>
@@ -51,8 +51,7 @@ export default function About() {
       </p>
       <h2>Me</h2>
       <p>
-        I like to call myself a
-        <a href="https://kuromika.vercel.app/"> full-stack developer</a>{" "}
+        I am a<a href="https://kuromika.vercel.app/"> full-stack developer</a>{" "}
         wannabe, and I wonder if there will be any day where I will confidently
         call myself one, there are many things to learn!
       </p>
