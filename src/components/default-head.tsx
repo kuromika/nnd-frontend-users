@@ -4,6 +4,8 @@ import { PropsWithChildren } from "react";
 export const DefaultHead = ({ children }: PropsWithChildren) => {
   return (
     <Head>
+      <link href="/icon.ico" rel="shortcut icon"></link>
+      <link href="/icon.ico" rel="icon"></link>
       <meta
         property="og:url"
         content={`https://natsu-no-daisankaku.vercel.app/`}
