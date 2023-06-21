@@ -1,3 +1,4 @@
+import { DefaultHead } from "@/components/default-head";
 import { PostBoard } from "@/features/posts/post-board";
 import styles from "@/styles/pages/Posts.module.css";
 import Head from "next/head";
@@ -5,9 +6,9 @@ import Head from "next/head";
 export default function Posts() {
   return (
     <div className={styles.container}>
-      <Head>
+      <DefaultHead>
         <title>Natsu no Daisankaku | Posts</title>
-      </Head>
+      </DefaultHead>
       <PostBoard></PostBoard>
     </div>
   );

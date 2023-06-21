@@ -71,6 +71,8 @@ export default function PostPage({
   return (
     <div className={styles.container}>
       <Head>
+        <link href="/icon.ico" rel="shortcut icon"></link>
+        <link href="/icon.ico" rel="icon"></link>
         <title>{meta.title}</title>
         <meta property="description" content={meta.description} />
         <meta property="og:title" content={meta.title}></meta>
