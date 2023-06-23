@@ -7,7 +7,7 @@ export default function Posts() {
   return (
     <div className={styles.container}>
       <DefaultHead>
-        <title>Natsu no Daisankaku | Posts</title>
+        <title>Natsu no Daisankaku - Blog Posts</title>
       </DefaultHead>
       <PostBoard></PostBoard>
     </div>
