@@ -16,7 +16,7 @@ export default function About() {
       ></Image>
       <h1>About</h1>
       <p>
-        Welcome to <a href="https://github.com/kuromika">Kuromika</a>&apos;s
+        Welcome to <a href="https://github.com/sukairaida">Sukairaida</a>&apos;s
         personal blog!
       </p>
       <p>
@@ -51,7 +51,7 @@ export default function About() {
       </p>
       <h2>Me</h2>
       <p>
-        I am a<a href="https://kuromika.vercel.app/"> full-stack developer</a>{" "}
+        I am a<a href="https://sukairaida.vercel.app/"> full-stack developer</a>{" "}
         wannabe, and I wonder if there will be any day where I will confidently
         call myself one, there are many things to learn!
       </p>
@@ -62,7 +62,7 @@ export default function About() {
       <p>
         If you&apos;re interested in my work or have any feedback about this
         blog, feel free to send me an{" "}
-        <a href="mailto:kuromika.dev@gmail.com">email</a>.
+        <a href="mailto:sukairaida.dev@gmail.com">email</a>.
       </p>
     </section>
   );
