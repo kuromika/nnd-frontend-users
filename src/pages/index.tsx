@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className={styles.posts}>
       <DefaultHead>
-        <title>Natsu no Daisankaku - Kuromika&apos;s Blog</title>
+        <title>Natsu no Daisankaku | Sukairaida&apos;s Blog</title>
       </DefaultHead>
       {posts.map((post) => {
         const meta = matter(post);
