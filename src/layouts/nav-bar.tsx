@@ -50,7 +50,7 @@ export const Navigation = () => {
             <Link href="/">Top</Link>
             <Link href="/posts">Posts</Link>
             <Link href="/about">About</Link>
-            <a href="https://kuromika.vercel.app/">Portfolio</a>
+            <a href="https://sukairaida.vercel.app/">Portfolio</a>
           </div>
         </Modal>
       )}
