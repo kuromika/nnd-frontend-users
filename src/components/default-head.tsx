@@ -10,7 +10,10 @@ export const DefaultHead = ({ children }: PropsWithChildren) => {
         property="og:url"
         content={`https://natsu-no-daisankaku.vercel.app/`}
       ></meta>
-      <meta property="description" content="Kuromika's blog and delusions" />
+      <meta
+        property="description"
+        content="Sukairaidasu's blog and delusions"
+      />
       <meta
         property="og:image"
         content="https://natsu-no-daisankaku.vercel.app/default.png"
@@ -19,12 +22,12 @@ export const DefaultHead = ({ children }: PropsWithChildren) => {
       <meta name="og:image:alt" content="Nadeko from Monogatari"></meta>
       <meta
         property="og:description"
-        content="Kuromika's blog and delusions"
+        content="Sukairaidasu's blog and delusions"
       ></meta>
       <meta name="twitter:title" content="Natsu no Daisankaku"></meta>
       <meta
         name="twitter:description"
-        content="Kuromika's blog and delusions"
+        content="Sukairaidasu's blog and delusions"
       ></meta>
       <meta
         name="twitter:image"
