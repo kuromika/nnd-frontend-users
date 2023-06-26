@@ -58,6 +58,7 @@
   background-color: transparent;
   border: none;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .logout:hover {
